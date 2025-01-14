@@ -4,12 +4,13 @@ import { Container, Paper, Typography, Box, Button } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import AnalysisResults from "../components/Results/AnalysisResults";
 
+// frontend/src/pages/Results.jsx
 const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Log the location state to debug
-  console.log('Location State:', location.state);
+  
+  console.log('Full location state:', location.state);
+  console.log('Analysis data:', location.state?.analysis);
 
   const handleScanAgain = () => {
     navigate('/scan');
@@ -22,17 +23,30 @@ const Results = () => {
           Analysis Results
         </Typography>
 
-        {/* Display the analysis results */}
+        {location.state?.imageUrl && (
+          <Box sx={{ mb: 3, textAlign: "center" }}>
+            <img
+              src={location.state.imageUrl}
+              alt="Analyzed food"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "300px",
+                objectFit: "contain",
+                borderRadius: '8px',
+              }}
+            />
+          </Box>
+        )}
+
         <AnalysisResults data={location.state?.analysis} />
 
-        {/* Scan Again Button */}
         <Box sx={{ mt: 3, textAlign: 'center' }}>
           <Button 
             variant="contained" 
             onClick={handleScanAgain}
             sx={{ minWidth: 200 }}
           >
-            Scan Another Item
+            SCAN ANOTHER ITEM
           </Button>
         </Box>
       </Paper>
