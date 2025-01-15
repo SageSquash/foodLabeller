@@ -2,10 +2,6 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 
-# Add debugging
-# print("Current working directory:", os.getcwd())
-# print("Environment variables:", os.environ.keys())
-
 load_dotenv()
 
 # Add more debugging

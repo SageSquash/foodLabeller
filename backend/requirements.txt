@@ -6,3 +6,8 @@ python-dotenv
 sqlalchemy
 databases
 google-generativeai
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+requests
+flask-cors
